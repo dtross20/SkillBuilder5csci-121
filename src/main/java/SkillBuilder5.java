@@ -1,8 +1,10 @@
+import java.util.Arrays;
+
 /**
  * This class provides various Skill Builder 5 - Array
  * exercises.
  *
- * @author (you)
+ * @author (dtross)
  * @version (a version number or a date)
  */
 public class SkillBuilder5
@@ -18,7 +20,13 @@ public class SkillBuilder5
     public static double[] prefixAverage(double[] data)
     {
         //TODO: replace this line with your code.
-        return null;
+        double sum = 0;
+        double[] myArray = new double[data.length];
+        for(int loopVar = 0; loopVar < data.length; loopVar++){
+            sum += data[loopVar];
+            myArray[loopVar] = sum / (loopVar + 1);
+        }
+        return myArray;
     }
 
     /**
@@ -32,7 +40,12 @@ public class SkillBuilder5
     public static int  indexOf(int searchValue, int[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        for( int loopVar2 = 0; loopVar2< anArray.length;loopVar2+=1){
+            if ( anArray[loopVar2] == searchValue){
+                return loopVar2;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -46,7 +59,12 @@ public class SkillBuilder5
     public static int  indexOf(String s, String[] anArray)
     {
         //TODO: replace this line with your code.
-        return 0;
+        for( int loopVar3 = 0; loopVar3< anArray.length;loopVar3+=1){
+            if ( anArray[loopVar3] == s){
+                return loopVar3;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -58,9 +76,18 @@ public class SkillBuilder5
      */
     public static String[] remove(String s, String[] anArray)
     {
-        // add your code here
-        return null;
-    }
+        String [] rossDeyvon  = new String [anArray.length];
+        int i = 0;
+        for (int loopVar4 = 0; loopVar4 < anArray.length; loopVar4+=1){
+            if(anArray[loopVar4] != s){
+                rossDeyvon[i] = anArray[loopVar4];
+                i+=1;
+            }
+        }
+        return Arrays.copyOfRange(rossDeyvon,0,i);
+    }// add your code here
+
+
 
     /**
      * Reverses an array of integers.
@@ -68,6 +95,10 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
-        // add your code here
+        for(int i = 0; i < anArray.length / 2; i++) {
+            int temp = anArray[i];
+            anArray[i] = anArray[anArray.length - i - 1];
+            anArray[anArray.length - i - 1] = temp;
+        }// add your code here
     }
 }
